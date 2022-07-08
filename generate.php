@@ -217,15 +217,16 @@ html::after {
             <div class='card-body'>
                 <div class="form-group">
                     <center> 
+			    <span class="input">
                     <form action="" method="POST">
-                        <span class="input">
+                        
             <input type="text" placeholder="Enter google drive public link" name="url" value="<?php
 if ($iframeid) {
     echo $_POST['url'];
 } else {
     echo "";
 }
-											      ?>"/><span></span></span>
+											      ?>"/><span></span></span><br>
             <button class="button-50" input type="submit" value="Generate" name="submit" >Submit </button>
         </form>
         <div id="myElement"></div>
