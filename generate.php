@@ -251,7 +251,7 @@ if ($iframeid) {
 
         <br><br>
   <section class="footme">
-	  <center> Google Drive Direct Link Generator <a id="nochange" href="">CODER729</a></center>
+	  <center> Google Drive Direct Link Generator <a id="nochange" href="mailto:coding729@gmail.com">CODER729</a></center>
   </section>
 </body>
 </html>
