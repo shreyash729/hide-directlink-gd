@@ -220,13 +220,13 @@ html::after {
 			    <span class="input">
                     <form action="" method="POST">
                         
-            <input type="text" placeholder="Enter google drive public link" name="url" value="<?php
+            <input type="text" size="80"placeholder="Enter google drive public link" name="url" value="<?php
 if ($iframeid) {
     echo $_POST['url'];
 } else {
     echo "";
 }
-											      ?>"/><span></span></span><br>
+											      ?>"/><span></span></span><br><br>
             <button class="button-50" input type="submit" value="Generate" name="submit" >Submit </button>
         </form>
         <div id="myElement"></div>
