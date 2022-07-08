@@ -87,7 +87,7 @@ if ($iframeid) {
     echo 'https://' . $_SERVER['SERVER_NAME'] . '?id=' . $iframeid . '</textarea>';
 ?></textarea><br/>
         <center>
-        <h2>REATED WITH LOVE BY CODER729</h2>
+        <h2>CREATED WITH LOVE BY CODER729</h2>
         <a href="<?php
     echo 'https://' . $_SERVER['SERVER_NAME'] . '?id=' . $iframeid;
 ?>"><button class="btn btn-default">Download</button></a></center>
@@ -101,7 +101,7 @@ if ($iframeid) {
 
         <br><br>
   <section class="footme">
-      Google Drive Direct Link Generator <a id="nochange" href="https://fb.me/composer.json">Iqbal Rifai</a>
+      Google Drive Direct Link Generator <a id="nochange" href="">CODER729</a>
   </section>
 </body>
 </html>
