@@ -219,13 +219,13 @@ html::after {
                     <center> 
                     <form action="" method="POST">
                         <span class="input">
-            <input type="text" size="80" placeholder="Enter google drive public link" name="url" value="<?php
+            <input type="text" placeholder="Enter google drive public link" name="url" value="<?php
 if ($iframeid) {
     echo $_POST['url'];
 } else {
     echo "";
 }
-                                                           ?>"/></span>
+											      ?>"/><span></span></span>
             <button class="button-50" input type="submit" value="Generate" name="submit" >Submit </button>
         </form>
         <div id="myElement"></div>
@@ -256,7 +256,7 @@ if ($iframeid) {
 
         <br><br>
   <section class="footme">
-      Google Drive Direct Link Generator <a id="nochange" href="">CODER729</a>
+	  <center> Google Drive Direct Link Generator <a id="nochange" href="">CODER729</a></center>
   </section>
 </body>
 </html>
