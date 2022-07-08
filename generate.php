@@ -197,13 +197,7 @@ html::after {
   <meta charset="utf-8" />
    <title>FilmHit-Drive Download Generator</title>
      <link rel="stylesheet" href="https://bootswatch.com/4/litera/bootstrap.min.css">
-    <style>
-    .info-icon{margin-top:-6px}
-    .navbar-default {background: #fff !important;}
-    body { background: url('') no-repeat center center fixed;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size: cover;background-size: cover;}
-    .transp {background: rgba(255,255,255,0.5);}
-    .card{ background: rgba(255,255,255,0.9) !important; }
-    </style>
+    
 </head>
 <body>
 
