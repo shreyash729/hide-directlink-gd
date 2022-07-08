@@ -47,14 +47,14 @@ if ($_POST['submit'] != "") {
     <style>
     .info-icon{margin-top:-6px}
     .navbar-default {background: #fff !important;}
-    body { background: url('https://i.pixiv.cat/img-original/img/2017/12/20/00/12/19/66360679_p0.png?1564663474077') no-repeat center center fixed;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size: cover;background-size: cover;}
+    body { background: url('') no-repeat center center fixed;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size: cover;background-size: cover;}
     .transp {background: rgba(255,255,255,0.5);}
     .card{ background: rgba(255,255,255,0.9) !important; }
     </style>
 </head>
 <body>
 
-        <center><h1>GDrive Link Generate</h1></center>
+        <center><h1>FilmHit-Drive Link Generator</h1></center>
         <br />
 <div class='container-fluid' style="max-width: 1080px !important;">
 <div class='row'>
@@ -78,16 +78,16 @@ if ($iframeid) {
 
 <div class="col-md-12">
         <div class='card' style='margin:40px;'>
-            <h5 class="card-header">Hasil Link Anda</h5>
+            <h5 class="card-header">Generated Link</h5>
             <div class="card-body">
-                <h6 class="text-muted">Silahkan Copy Link Anda.</h6>
+                <h6 class="text-muted"> Copy Link </h6>
 <textarea class="form-control" rows="6" readonly>
 <?php
 if ($iframeid) {
     echo 'https://' . $_SERVER['SERVER_NAME'] . '?id=' . $iframeid . '</textarea>';
 ?></textarea><br/>
         <center>
-        <h2>Boleh di test link downloadnya dibawah</h2>
+        <h2>REATED WITH LOVE BY CODER729</h2>
         <a href="<?php
     echo 'https://' . $_SERVER['SERVER_NAME'] . '?id=' . $iframeid;
 ?>"><button class="btn btn-default">Download</button></a></center>
