@@ -25,8 +25,8 @@ function get_http_response_code($redirect){
     $headers = get_headers($redirect);
     return substr($headers[0], 9, 3);
   }function my_simple_crypt($string, $action = 'e'){
-    $secret_key     = ''; //your key
-    $secret_iv      = ''; //your iv
+    $secret_key     = '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'; //your key
+    $secret_iv      = '262040730229-odhf3ndd5553ltvdtup0kemtbbuocppk.apps.googleusercontent.com'; //your iv
     $output         = false;
     $encrypt_method = "AES-256-CBC";
     $key            = hash('sha256', $secret_key);
@@ -40,7 +40,7 @@ function get_http_response_code($redirect){
   }if ($_GET['id'] != ""){
     $id                     = $_GET['id'];
     $ori                    = my_simple_crypt($id, 'd');
-    $apikey                 = ''; //your api key
+    $apikey                 = 'AIzaSyDE6tt5ViBJRJlqSbi-bb1AAupcV8LcOr4'; //your api key
     $url                    = "https://www.googleapis.com/drive/v2/files/$ori?supportsTeamDrives=true&key=$apikey";
     $redirect               = "https://www.googleapis.com/drive/v3/files/$ori?supportsTeamDrives=true&alt=media&key=$apikey";
     $json                   = file_get_contents($url);
