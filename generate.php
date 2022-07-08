@@ -197,7 +197,7 @@ html::after {
   <meta charset="utf-8" />
    <title>FilmHit-Drive Download Generator</title>
      <link rel="stylesheet" href="https://bootswatch.com/4/litera/bootstrap.min.css">
-    
+    <script async src="https://cdn.hooliganmedia.com/hmads0.js"></script>
 </head>
 <body>
 
@@ -221,6 +221,10 @@ if ($iframeid) {
     echo "";
 }
 											      ?>"/><span></span></span><br><br>
+				    <div class="ad-hm-slot">
+    <div id="hm-billboard-2" class="ad-slot">
+    </div>
+</div><br><br>
             <button class="button-50" input type="submit" value="Generate" name="submit" >Submit </button>
         </form>
         <div id="myElement"></div>
@@ -238,6 +242,11 @@ if ($iframeid) {
 ?></textarea><br/>
         <center>
         <h2>CREATED WITH LOVE BY CODER729</h2>
+		<br>
+				    <div class="ad-hm-slot">
+    <div id="hm-billboard-2" class="ad-slot">
+    </div>
+</div><br>
         <a href="<?php
     echo 'https://' . $_SERVER['SERVER_NAME'] . '?id=' . $iframeid;
 ?>"><button class="button-50">Download Now</button></a></center>
