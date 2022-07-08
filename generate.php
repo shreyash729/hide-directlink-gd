@@ -122,7 +122,7 @@ if ($iframeid) {
 }
 											      ?>"/><span></span></span><br><br>
 				    <div class="ad-hm-slot">
-    <div id="hm-billboard-2" class="ad-slot">
+    <div id="hm-billboard-1" class="ad-slot">
     </div>
 </div><br><br>
             <button class="button-50" input type="submit" value="Generate" name="submit" >Submit </button>
