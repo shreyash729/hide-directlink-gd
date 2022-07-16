@@ -1,12 +1,5 @@
 
 <?php include 'index.php';?>
-<?php
-header("Content-Type: $mime");
-header("Content-Transfer-Encoding: Binary");
-header("Content-disposition: attachment; filename=\"$name\"");
-http_response_code(200);
-?>
-
 <html>
     <head>
         <title>Download</title>
