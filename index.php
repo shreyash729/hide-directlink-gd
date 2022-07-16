@@ -1,60 +1,3 @@
-<style>
-    <style>
-/* CSS */
-.button-50 {
-  appearance: button;
-  background-color: #000;
-  background-image: none;
-  border: 1px solid #000;
-  border-radius: 4px;
-  box-shadow: #fff 4px 4px 0 0,#000 4px 4px 0 1px;
-  box-sizing: border-box;
-  color: #fff;
-  cursor: pointer;
-  display: inline-block;
-  font-family: ITCAvantGardeStd-Bk,Arial,sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 20px;
-  margin: 0 5px 10px 0;
-  overflow: visible;
-  padding: 12px 40px;
-  text-align: center;
-  text-transform: none;
-  touch-action: manipulation;
-  user-select: none;
-  -webkit-user-select: none;
-  vertical-align: middle;
-  white-space: nowrap;
-}
-
-.button-50:focus {
-  text-decoration: none;
-}
-
-.button-50:hover {
-  text-decoration: none;
-}
-.button-50:hover {
-  text-decoration: none;
-}
-
-.button-50:active {
-  box-shadow: rgba(0, 0, 0, .125) 0 3px 5px inset;
-  outline: 0;
-}
-
-.button-50:not([disabled]):active {
-  box-shadow: #fff 2px 2px 0 0, #000 2px 2px 0 1px;
-  transform: translate(2px, 2px);
-}
-
-@media (min-width: 768px) {
-  .button-50 {
-    padding: 12px 50px;
-  }
-}
-</style>
 <?php
 
 error_reporting(0);
@@ -85,8 +28,7 @@ function get_http_response_code($redirect){
     $get_http_response_code = get_http_response_code($redirect);
     $name                   = $data["title"];
     $mime                   = $data["mimeType"];
-    ?>
-<?php if ($get_http_response_code == 403): ?>
+    if ($get_http_response_code == 403){
         header('Content-Type: application/json');
         http_response_code(403);
         $error = array(
@@ -96,41 +38,20 @@ function get_http_response_code($redirect){
                 'message' => 'The download quota for this file has been exceeded.'
             );
         echo json_encode($error);
-<?php endif ?>
-<?php if ($get_http_response_code == 200): ?>
-        <a href="<?php echo readfile($redirect);?>"><button  id="dwnbtn" onclick="disableButton(this)" class="button-50" disabled></button></a>
-<br>
-<p style="font-size: 12px;">CREATED WITH LOVE BY <a href="mailto:coding729@gmail,com">CODER729</a></p>
-</center></div>
- <div class="ad-hm-slot">
-    <div id="hm-billboard-3" class="ad-slot">
-    </div></div>
-<script type="text/javascript">
-            function disableButton(btn) {
-                document.getElementById(btn.id).disabled = true;
-                
-            }
-        </script>
-    <script>
-   var downloadButton = document.getElementById("dwnbtn");
-var counter = 10;
-
-downloadButton.innerHTML = "Validating link";
-var id;
-id = setInterval(function() {
-    counter--;
-    if(counter < 0) {
-        downloadButton.innerHTML = "🔥DOWNLOAD NOW🔥";
-        downloadButton.removeAttribute('disabled');
-        clearInterval(id);
-    } else {
-        downloadButton.innerHTML = "Validating-link <i class='fa fa-spinner fa-spin' style='font-size:24px'></i>";
-    }
-}, 1000);
-
-</script>
-        
-      
-<?php endif ?>
- 
-
+      }else{
+        header("Content-Type: $mime");
+        header("Content-Transfer-Encoding: Binary");
+        header("Content-disposition: attachment; filename=\"$name\"");
+        http_response_code(200);
+        echo readfile($redirect);
+      }
+  }else{
+    header('Content-Type: application/json');
+    http_response_code(404);
+    $error = array(
+        "error" => true,
+        "message" => "Missing id"
+    );
+    echo json_encode($error);
+  }
+?>
