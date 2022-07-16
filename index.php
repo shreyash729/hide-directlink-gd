@@ -39,11 +39,7 @@ function get_http_response_code($redirect){
             );
         echo json_encode($error);
       }else{
-        header("Content-Type: $mime");
-        header("Content-Transfer-Encoding: Binary");
-        header("Content-disposition: attachment; filename=\"$name\"");
-        http_response_code(200);
-        echo readfile($redirect);
+        include ('download.php');
       }
   }else{
     header('Content-Type: application/json');
