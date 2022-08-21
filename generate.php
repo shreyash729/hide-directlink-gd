@@ -135,10 +135,34 @@ if ($iframeid) {
             <h5 class="card-header">Generated Link</h5>
             <div class="card-body">
                 <h6 class="text-muted"> Copy Link </h6>
+		    <?php
+function encrypt_url($string) {
+  $key = "shreyash"; //key to encrypt and decrypts.
+  $result = '';
+  $test = "";
+   for($i=0; $i<strlen($string); $i++) {
+     $char = substr($string, $i, 1);
+     $keychar = substr($key, ($i % strlen($key))-1, 1);
+     $char = chr(ord($char)+ord($keychar));
+
+     $test[$char]= ord($char)+ord($keychar);
+     $result.=$char;
+   }
+
+   return urlencode(base64_encode($result));
+}
+?>
+		    <?php
+	$sh='https://' . $_SERVER['SERVER_NAME'] . '?id=' . $iframeid;
+        $shortapi="http://shorthit.ga/st?api=1cd6b57d95e28000f9431a9114d63e9d85e341e2&url=";
+	$encrypt=encrypt_url($sh);
+        $dl=$shortapi.$encrypt;
+		    
+	?>
 <textarea class="form-control" rows="6" readonly>
 <?php
 if ($iframeid) {
-    echo 'https://' . $_SERVER['SERVER_NAME'] . '?id=' . $iframeid . '</textarea>';
+    echo $dl.'</textarea>';
 ?></textarea><br/>
         <center>
         <h2>CREATED WITH LOVE BY CODER729</h2>
