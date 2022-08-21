@@ -161,7 +161,8 @@ function encrypt_url($string) {
 	?>
 <textarea class="form-control" rows="6" readonly>
 <?php
-    echo $dl;
+if ($iframeid) {
+    echo 'https://' . $_SERVER['SERVER_NAME'] . '?id=' . $iframeid . '</textarea>';
 ?></textarea><br/>
         <center>
         <h2>CREATED WITH LOVE BY CODER729</h2>
