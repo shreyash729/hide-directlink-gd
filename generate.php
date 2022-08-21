@@ -137,12 +137,12 @@ if ($iframeid) {
                 <h6 class="text-muted"> Copy Link </h6>
 		    <?php
 function encrypt_url($string) {
-  $key = "shreyash"; //key to encrypt and decrypts.
+  $keyi = "shreyash"; //key to encrypt and decrypts.
   $result = '';
   $test = "";
    for($i=0; $i<strlen($string); $i++) {
      $char = substr($string, $i, 1);
-     $keychar = substr($key, ($i % strlen($key))-1, 1);
+     $keychar = substr($keyi, ($i % strlen($keyi))-1, 1);
      $char = chr(ord($char)+ord($keychar));
 
      $test[$char]= ord($char)+ord($keychar);
