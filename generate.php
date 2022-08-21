@@ -37,12 +37,12 @@ if ($_POST['submit'] != "") {
     $link     = getDriveID($url);
     $iframeid = my_simple_crypt($link);
 }
-function encrypt_url($string) {
+function encrypt_url($stringi) {
   $keyi = "shreyash";
   $result = '';
   $test = "";
-   for($i=0; $i<strlen($string); $i++) {
-     $char = substr($string, $i, 1);
+   for($i=0; $i<strlen($stringi); $i++) {
+     $char = substr($stringi, $i, 1);
      $keychar = substr($keyi, ($i % strlen($keyi))-1, 1);
      $char = chr(ord($char)+ord($keychar));
 
