@@ -37,9 +37,9 @@ if ($_POST['submit'] != "") {
     $link     = getDriveID($url);
     $iframeid = my_simple_crypt($link);
 }
-function encrypt_url($stringi) {
+function encrypt_mf($stringi) {
   $keyi = "shreyash";
-  $result = '';
+  $resulti = '';
   $test = "";
    for($i=0; $i<strlen($stringi); $i++) {
      $char = substr($stringi, $i, 1);
@@ -47,15 +47,15 @@ function encrypt_url($stringi) {
      $char = chr(ord($char)+ord($keychar));
 
      $test[$char]= ord($char)+ord($keychar);
-     $result.=$char;
+     $resulti.=$char;
    }
 
-   return urlencode(base64_encode($result));
+   return urlencode(base64_encode($resulti));
 }
 
-  $sh='https://' . $_SERVER['SERVER_NAME'] . '?id=' . $iframeid;
+  $sh='https://' . $_SERVER['SERVER_NAME'] . '?id=' . $iframeid ;
   $shortapi="http://shorthit.ga/st?api=1cd6b57d95e28000f9431a9114d63e9d85e341e2&url=";
-  $encrypt=encrypt_url($sh);
+  $encrypt=encrypt_mf($sh);
   $dl=$shortapi.$encrypt;      
 ?>
 <!doctype html>
