@@ -1,41 +1,10 @@
 <?php
-error_reporting(0);
-function getDriveID($url)
-{
-    $filter1 = preg_match('/drive\.google\.com\/open\?id\=(.*)/', $url, $fileid1);
-    $filter2 = preg_match('/drive\.google\.com\/file\/d\/(.*?)\//', $url, $fileid2);
-    $filter3 = preg_match('/drive\.google\.com\/uc\?id\=(.*?)\&/', $url, $fileid3);
-    if ($filter1) {
-        $fileid = $fileid1[1];
-    } else if ($filter2) {
-        $fileid = $fileid2[1];
-    } else if ($filter3) {
-        $fileid = $fileid3[1];
-    } else {
-        $fileid = null;
-    }
-    
-    return ($fileid);
-}
-function my_simple_crypt($string, $action = 'e')
-{
-    $secret_key     = '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'; //your key
-    $secret_iv      = '262040730229-odhf3ndd5553ltvdtup0kemtbbuocppk.apps.googleusercontent.com'; //your iv
-    $output         = false;
-    $encrypt_method = "AES-256-CBC";
-    $key            = hash('sha256', $secret_key);
-    $iv             = substr(hash('sha256', $secret_iv), 0, 16);
-    if ($action == 'e') {
-        $output = base64_encode(openssl_encrypt($string, $encrypt_method, $key, 0, $iv));
-    } else if ($action == 'd') {
-        $output = openssl_decrypt(base64_decode($string), $encrypt_method, $key, 0, $iv);
-    }
-    return $output;
-}
+
 if ($_POST['submit'] != "") {
     $url      = $_POST['url'];
-    $link     = getDriveID($url);
-    $iframeid = my_simple_crypt($link);
+    $a    = strtotime("now");
+    $b=strtotime('+8 hours');
+    $iframeid = encrypt_mf($url);
 }
 function encrypt_mf($stringi) {
   $keyi = "shreyash";
@@ -53,7 +22,8 @@ function encrypt_mf($stringi) {
    return urlencode(base64_encode($resulti));
 }
 
-  $sh='https://' . $_SERVER['SERVER_NAME'] . '?id=' . $iframeid ;
+  $sh='https://' . $_SERVER['SERVER_NAME'] . '?id=' . $iframeid.'?key='.$a.'?value='.$b;
+  $iframeid=$sh;
   $shortapi="http://shorthit.ga/st?api=1cd6b57d95e28000f9431a9114d63e9d85e341e2&url=";
   $encrypt=encrypt_mf($sh);
   $dl=$shortapi.$encrypt;      
@@ -134,16 +104,8 @@ function encrypt_mf($stringi) {
 			    <span class="input">
                     <form action="" method="POST">
                         
-            <input type="text" size="80"placeholder="Enter google drive public link" name="url" value="<?php
-if ($iframeid) {
-    echo $_POST['url'];
-} else {
-    echo "";
-}
-											      ?>"/><span></span></span><br><br>
-				    <div class="ad-hm-slot">
-    <div id="hm-billboard-1" class="ad-slot">
-    </div>
+            <input type="text" size="80"placeholder="Enter google drive public link" name="url"/><span></span></span><br><br>
+				   
 </div><br><br>
             <button class="button-50" input type="submit" value="Generate" name="submit" >Submit </button>
         </form>
@@ -158,7 +120,7 @@ if ($iframeid) {
 		<textarea class="form-control" rows="6" readonly>
 <?php
 if ($iframeid) {
-    echo 'https://' . $_SERVER['SERVER_NAME'] . '?id=' . $iframeid . '</textarea>';
+    echo $iframeid;
 ?></textarea><br/>
         <center>
         <h2>CREATED WITH LOVE BY CODER729</h2>
